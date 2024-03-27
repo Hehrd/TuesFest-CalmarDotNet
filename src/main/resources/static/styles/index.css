@@ -1,0 +1,159 @@
+html, body {
+    height: 100%; 
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/images/dark-hexagonal-background-with-gradient-color_79603-1409.png');
+    background-size: cover; 
+    background-position: center;
+    overflow: hidden;
+}
+
+#buttonContainer{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+.Mybuttons{
+    border: 3px solid;
+    border-radius: 15px;
+    background-color: hsl(126, 90%, 58%);
+    margin: 33px;
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+}
+.Mybuttons:hover{
+    background-color: transparent;
+    color: hsl(126, 90%, 58%);
+    border-color: hsl(126, 90%, 58%);
+    transform: scale(1.1)
+}
+.Mybuttons:active{
+    transform: scale(0.9);
+}
+#firstButton{
+    width: 150px;
+    padding: 13px;
+}
+#secondButton{
+    width: 150px;
+    padding: 13px;
+
+}
+#buttonContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#DACONTAINER {
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+}
+
+#message {
+    margin-bottom: 80px;
+    font-size: 2rem;
+    
+}
+#message span {
+    display: inline-block;
+    color: hsl(126, 90%, 58%);;
+    opacity: 0; 
+    margin-right: 2px; 
+    animation: fall 2s forwards; 
+}
+  
+@keyframes fall {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px); 
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+#message span:nth-child(1) { animation-delay: 0s; }
+#message span:nth-child(2) { animation-delay: 0.029s; }
+#message span:nth-child(3) { animation-delay: 0.058s; }
+#message span:nth-child(4) { animation-delay: 0.087s; }
+#message span:nth-child(5) { animation-delay: 0.116s; }
+#message span:nth-child(6) { animation-delay: 0.145s; }
+#message span:nth-child(7) { animation-delay: 0.174s; }
+#message span:nth-child(8) { animation-delay: 0.203s; }
+#message span:nth-child(9) { animation-delay: 0.232s; }
+#message span:nth-child(10) { animation-delay: 0.261s; }
+#message span:nth-child(11) { animation-delay: 0.29s; }
+#message span:nth-child(12) { animation-delay: 0.319s; }
+#message span:nth-child(13) { animation-delay: 0.348s; }
+#message span:nth-child(14) { animation-delay: 0.377s; }
+#message span:nth-child(15) { animation-delay: 0.406s; }
+#message span:nth-child(16) { animation-delay: 0.435s; }
+#message span:nth-child(17) { animation-delay: 0.464s; }
+#message span:nth-child(18) { animation-delay: 0.493s; }
+#message span:nth-child(19) { animation-delay: 0.522s; }
+#message span:nth-child(20) { animation-delay: 0.551s; }
+#message span:nth-child(21) { animation-delay: 0.58s; }
+#message span:nth-child(22) { animation-delay: 0.609s; }
+#message span:nth-child(23) { animation-delay: 0.638s; }
+#message span:nth-child(24) { animation-delay: 0.667s; }
+#message span:nth-child(25) { animation-delay: 0.696s; }
+#message span:nth-child(26) { animation-delay: 0.725s; }
+#message span:nth-child(27) { animation-delay: 0.754s; }
+#message span:nth-child(28) { animation-delay: 0.783s; }
+#message span:nth-child(29) { animation-delay: 0.812s; }
+#message span:nth-child(30) { animation-delay: 0.841s; }
+#message span:nth-child(31) { animation-delay: 0.87s; }
+#message span:nth-child(32) { animation-delay: 0.899s; }
+#message span:nth-child(33) { animation-delay: 0.928s; }
+#message span:nth-child(34) { animation-delay: 0.957s; }
+#message span:nth-child(35) { animation-delay: 0.986s; }
+#message span:nth-child(36) { animation-delay: 1.015s; }
+#message span:nth-child(37) { animation-delay: 1.044s; }
+#message span:nth-child(38) { animation-delay: 1.073s; }
+#message span:nth-child(39) { animation-delay: 1.102s; }
+#message span:nth-child(40) { animation-delay: 1.131s; }
+#message span:nth-child(41) { animation-delay: 1.16s; }
+#message span:nth-child(42) { animation-delay: 1.189s; }
+#message span:nth-child(43) { animation-delay: 1.218s; }
+#message span:nth-child(44) { animation-delay: 1.247s; }
+#message span:nth-child(45) { animation-delay: 1.276s; }
+#message span:nth-child(46) { animation-delay: 1.305s; }
+#message span:nth-child(47) { animation-delay: 1.334s; }
+#message span:nth-child(48) { animation-delay: 1.363s; }
+#message span:nth-child(49) { animation-delay: 1.392s; }
+#message span:nth-child(50) { animation-delay: 1.421s; }
+#message span:nth-child(51) { animation-delay: 1.45s; }
+#message span:nth-child(52) { animation-delay: 1.479s; }
+#message span:nth-child(53) { animation-delay: 1.508s; }
+#message span:nth-child(54) { animation-delay: 1.537s; }
+#message span:nth-child(55) { animation-delay: 1.566s; }
+#message span:nth-child(56) { animation-delay: 1.595s; }
+#message span:nth-child(57) { animation-delay: 1.624s; }
+#message span:nth-child(58) { animation-delay: 1.653s; }
+#message span:nth-child(59) { animation-delay: 1.682s; }
+#message span:nth-child(60) { animation-delay: 1.711s; }
+#message span:nth-child(61) { animation-delay: 1.74s; }
+#message span:nth-child(62) { animation-delay: 1.769s; }
+#message span:nth-child(63) { animation-delay: 1.798s; }
+#message span:nth-child(64) { animation-delay: 1.827s; }
+#message span:nth-child(65) { animation-delay: 1.856s; }
+#message span:nth-child(66) { animation-delay: 1.885s; }
+#message span:nth-child(67) { animation-delay: 1.914s; }
+#message span:nth-child(68) { animation-delay: 1.943s; }
+#message span:nth-child(69) { animation-delay: 1.972s; }
+#message span:nth-child(70) { animation-delay: 2.001s; }
+#message span:nth-child(71) { animation-delay: 2.03s; }
+#message span:nth-child(72) { animation-delay: 2.059s; }
+#message span:nth-child(73) { animation-delay: 2.088s; }
