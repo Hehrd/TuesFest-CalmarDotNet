@@ -1,0 +1,77 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/images/c754daf0-40cb-457c-bd1e-0e1c040f0817.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#formContainer {
+    width: 50%;
+    min-width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: hsla(0, 0%, 100%, 0.286);
+    backdrop-filter: blur(4px);
+}
+
+.forms {
+    width: 100%;
+}
+
+.forms label {
+    display: inline-block;
+    width: 30%;
+    min-width: 100px;
+    white-space: nowrap;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.forms input[type="text"],
+.forms input[type="password"],
+.forms input[type="submit"] {
+    width: 68%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.forms input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    width: auto;
+    margin: 20px 0;
+    transition: transform 0.2s ease, background-color 0.3s ease ; 
+}
+.forms input[type="submit"]:hover {
+    background-color: #45a049; 
+}
+
+.forms input[type="submit"]:active {
+    transform: scale(0.80); 
+}
+
+.hidden {
+    display: none;
+}
+
+.instructions {
+    font-size: 0.9rem;
+    color: #666;
+    width: 100%;
+    margin-bottom: 15px;
+}
