@@ -42,14 +42,14 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     }
 
     @Override
-    public HttpStatus register(HttpSession session, PlayerData playerData) {
-        HttpStatus response = service.register(playerData);
-        if (response == HttpStatus.OK) {
-            session.setAttribute("username", playerData.getUsername());
-        } else {
-            session.setAttribute("username", null);
-        }
-        return response;
+    public HttpStatus register(PlayerData playerData) {
+//        HttpStatus response = service.register(playerData);
+//        if (response == HttpStatus.OK) {
+//            session.setAttribute("username", playerData.getUsername());
+//        } else {
+//            session.setAttribute("username", null);
+//        }
+        return service.register(playerData);
     }
 
     @Override

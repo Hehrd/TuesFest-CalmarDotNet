@@ -17,7 +17,7 @@ public class PlayerDataServiceImpl implements PlayerDataService {
     public HttpStatus register(PlayerData playerData) {
         String username = playerData.getUsername();
         String password = playerData.getPassword();
-        if (repo.existsByUsername(username) && repo.existsByPassword(password)) {
+        if (repo.existsByUsername(username)) {
             return HttpStatus.BAD_REQUEST;
         }
         PlayerDataEntity entity = new  PlayerDataEntity(username, password);

@@ -1,12 +1,12 @@
 function SignUpRedirect() {
 
-    window.location.href = '/api/hacktues/signup';
+    window.location.href = '/api/teamplayer/register';
   }
 
 
   function LogInRedirect() {
 
-    window.location.href = '/api/hacktues/login';
+    window.location.href = '/api/teamplayer/login';
   }
   
 
