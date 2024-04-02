@@ -61,3 +61,7 @@ body, html {
     grid-column: 3 / 4;
     grid-row: 3 / 4;
   }
+
+  .hidden{
+    display: none;
+  }
