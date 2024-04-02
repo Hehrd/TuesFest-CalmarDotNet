@@ -1,12 +1,16 @@
-package com.ali.persistence.service.impl;
+package com.ali.service.impl;
 
 import com.ali.controller.model.PlayerData;
 import com.ali.persistence.model.PlayerDataEntity;
 import com.ali.persistence.repo.PlayerDataRepository;
-import com.ali.persistence.service.PlayerDataService;
+import com.ali.service.PlayerDataService;
+import com.ali.service.error.DuplicateUserException;
+import com.ali.service.error.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PlayerDataServiceImpl implements PlayerDataService {
@@ -14,29 +18,31 @@ public class PlayerDataServiceImpl implements PlayerDataService {
     PlayerDataRepository repo;
 
     @Override
-    public HttpStatus register(PlayerData playerData) {
+    public PlayerDataEntity register(PlayerData playerData) {
         String username = playerData.getUsername();
         String password = playerData.getPassword();
         if (repo.existsByUsername(username)) {
-            return HttpStatus.BAD_REQUEST;
+            throw new DuplicateUserException();
         }
         PlayerDataEntity entity = new  PlayerDataEntity(username, password);
-        repo.save(entity);
-        return HttpStatus.OK;
+        entity = repo.save(entity);
+        return entity;
     }
 
     @Override
-    public HttpStatus login(PlayerData playerData) {
+    public PlayerDataEntity login(PlayerData playerData) {
         String username = playerData.getUsername();
         String password = playerData.getPassword();
-        if (repo.existsByUsername(username) && repo.existsByPassword(password)) {
-            return HttpStatus.OK;
+        PlayerDataEntity entity = repo.findByUsernameAndPassword(username, password);
+        if (entity != null) {
+            entity = repo.findByUsername(username);
+            return entity;
         }
-        return HttpStatus.NOT_FOUND;
+        throw new UserNotFoundException();
     }
 
     @Override
-    public HttpStatus updateData(PlayerData playerData) {
+    public PlayerDataEntity updateData(PlayerData playerData) {
         PlayerDataEntity entity = repo.findByUsername(playerData.getUsername());
         entity.setValo(playerData.isValo());
         entity.setLol(playerData.isLol());
@@ -44,7 +50,13 @@ public class PlayerDataServiceImpl implements PlayerDataService {
         entity.setBs(playerData.isBs());
         entity.setDiscord(playerData.getDiscord());
         entity.setAboutme(playerData.getAboutme());
-        repo.save(entity);
-        return HttpStatus.OK;
+        entity = repo.save(entity);
+        return entity;
+    }
+
+    @Override
+    public List<PlayerDataEntity> listPlayers(String game) {
+        List<PlayerDataEntity> playerDataEntityList = repo.findAllByBs(true);
+        return playerDataEntityList;
     }
 }

@@ -15,7 +15,7 @@
 //}
 function fetchPlayersByGame(game) {
     const API_URL = `/api/hacktues/${game}`; // Adjust the API URL as necessary
-    fetch("/api/hacktues/list")
+    fetch("/api/teamplayer/list")
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

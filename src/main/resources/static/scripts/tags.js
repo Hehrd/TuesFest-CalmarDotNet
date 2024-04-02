@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.games-list');
     
     // Fetch and update checkboxes and text inputs based on server data
-    fetch('/api/hacktues/gettags')
+    fetch('/api/teamplayer/gettags')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(jsonData);
 
         // Send the updated data to the server
-        fetch('/api/hacktues/updatedata', {
+        fetch('/api/teamplayer/settings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -55,9 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            window.location.href = '/api/teamplayer/frontpage';
             return response.json(); // Assuming the server sends back a response
         })
         .then(successData => {
+
             console.log('Success:', successData);
             // Optionally, handle the server's response data
         })

@@ -7,33 +7,29 @@ const submitButton = form.querySelector('input[type="submit"]'); // Reference to
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const data = {
+    const playerData = {
         username: input.value,
         password: password.value,
     };
-
-    fetch('http://localhost:6969/api/hacktues/login', {
+    console.log(playerData);
+    fetch('/api/teamplayer/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(playerData),
     })
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
-        } 
+        } else {
+            loginInvalid.classList.add('hidden');
+            window.location.href = '/api/teamplayer/frontpage'
+        }
         return response.json();
     })
     .then(data => {
         console.log('Response:', data);
-        if (data === 'OK') {
-            console.log(data);
-            loginInvalid.classList.add('hidden');
-            window.location.href = '/api/hacktues/frontpage'
-        } else {
-            loginInvalid.classList.remove('hidden');
-        }
     })
     .catch((error) => {
         console.error('Error:', error);

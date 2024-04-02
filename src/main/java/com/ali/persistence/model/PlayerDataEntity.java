@@ -2,10 +2,12 @@ package com.ali.persistence.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "playerdata")
 @Data
+@NoArgsConstructor
 public class PlayerDataEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
