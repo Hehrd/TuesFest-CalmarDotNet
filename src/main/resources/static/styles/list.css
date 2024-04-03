@@ -29,13 +29,16 @@ body {
     width: 100%;
 }
 .player-card {
-    flex: 0 1 calc(20% - 20px); /* Decreased card width further */
+    flex: 0 1 calc(20% - 20px);
     border: 2px solid #007bff;
-    padding: 15px; /* Adjusted padding for internal spacing */
+    padding: 15px;
     border-radius: 8px;
     background-color: rgba(240, 240, 240, 0.9);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s ease-in-out;
+    display: flex; /* Make player-card a flex container */
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: space-between; /* Distribute space between items */
 }
 .player-card:hover {
     transform: translateY(-5px);
@@ -47,4 +50,7 @@ body {
 .player-card div:first-child span {
     font-weight: bold;
     font-size: 1.8em; /* Further increased the username size */
+}
+.text {
+    margin-top: auto; /* Push .text to the bottom */
 }
