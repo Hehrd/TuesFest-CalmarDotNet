@@ -36,10 +36,19 @@ body {
     background-color: rgba(240, 240, 240, 0.9);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s ease-in-out;
-    display: flex; /* Make player-card a flex container */
-    flex-direction: column; /* Stack child elements vertically */
-    justify-content: space-between; /* Distribute space between items */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    overflow: hidden;
 }
+
+.player-card .text {
+    margin-top: auto;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
 .player-card:hover {
     transform: translateY(-5px);
     cursor: pointer;
