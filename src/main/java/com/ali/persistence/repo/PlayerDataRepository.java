@@ -20,4 +20,10 @@ public interface PlayerDataRepository extends JpaRepository<PlayerDataEntity, In
     PlayerDataEntity findByUsernameAndPassword(String username, String password);
 
     List<PlayerDataEntity> findAllByBs(boolean isPlayed);
+
+    List<PlayerDataEntity> findAllByLol(boolean isPlayed);
+
+    List<PlayerDataEntity> findAllByFort(boolean isPlayed);
+
+    List<PlayerDataEntity> findAllByValo(boolean isPlayed);
 }

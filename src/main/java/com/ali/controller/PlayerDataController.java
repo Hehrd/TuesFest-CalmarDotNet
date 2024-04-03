@@ -49,5 +49,5 @@ public interface PlayerDataController {
 
     @RequestMapping(value = "/playerlist/{game}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<List<PlayerDataEntity>> listPlayers(@PathVariable String game);
+    ModelAndView listPlayers(@PathVariable String game);
 }

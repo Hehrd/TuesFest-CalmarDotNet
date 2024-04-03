@@ -1,5 +1,5 @@
 function redirectToPlayerDisplay(game) {
-    window.location.href = `/playerDisplay.html?game=${game}`;
+    window.location.href = `/api/teamplayer/playerlist/${game}`;
 }
 
 function selectBrawlStars() {

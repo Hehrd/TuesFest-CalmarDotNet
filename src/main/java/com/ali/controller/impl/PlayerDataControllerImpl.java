@@ -110,9 +110,9 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     }
 
     @Override
-    public ResponseEntity<List<PlayerDataEntity>> listPlayers(String game) {
-        HttpHeaders headers = new HttpHeaders();
-        ResponseEntity<List<PlayerDataEntity>> responseEntity = new ResponseEntity<>(playerDataService.listPlayers("bs"), HttpStatus.OK);
-        return responseEntity;
+    public ModelAndView listPlayers(String game) {
+        List<PlayerDataEntity> playerDataEntityList = playerDataService.listPlayers(game);
+        ModelAndView mav = new ModelAndView("list");
+        return mav;
     }
 }

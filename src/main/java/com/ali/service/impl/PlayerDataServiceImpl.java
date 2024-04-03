@@ -5,6 +5,7 @@ import com.ali.persistence.model.PlayerDataEntity;
 import com.ali.persistence.repo.PlayerDataRepository;
 import com.ali.service.PlayerDataService;
 import com.ali.service.error.DuplicateUserException;
+import com.ali.service.error.GameNotExistingException;
 import com.ali.service.error.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -56,7 +57,19 @@ public class PlayerDataServiceImpl implements PlayerDataService {
 
     @Override
     public List<PlayerDataEntity> listPlayers(String game) {
-        List<PlayerDataEntity> playerDataEntityList = repo.findAllByBs(true);
-        return playerDataEntityList;
+        List<PlayerDataEntity> playerDataEntityList;
+        switch (game) {
+            case "bs": playerDataEntityList = repo.findAllByBs(true); break;
+            case "lol": playerDataEntityList = repo.findAllByLol(true); break;
+            case "fort": playerDataEntityList = repo.findAllByFort(true); break;
+            case "valo": playerDataEntityList = repo.findAllByValo(true); break;
+            default: throw new GameNotExistingException();
+        }
+        for (int i = 0; i < playerDataEntityList.size(); i++) {
+            PlayerDataEntity playerDataEntity = playerDataEntityList.get(i);
+            playerDataEntity.setPassword(null);
+            playerDataEntityList.set(i, playerDataEntity);
+        }
+            return playerDataEntityList;
     }
 }
