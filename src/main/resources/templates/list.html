@@ -3,17 +3,20 @@
 <head>
     <title>Games list</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="/styles/style.css" type="text/css">
+    <link rel="stylesheet" href="/styles/list.css" type="text/css">
 </head>
 <body>
-<div th:each="player : ${players}">
-    <div>Username: <span th:text="${player.username}">Username</span></div>
-    <div>Plays BS: <span th:text="${player.bs} ? 'Yes' : 'No'">BS</span></div>
-    <div>Plays Valo: <span th:text="${player.valo} ? 'Yes' : 'No'">Valo</span></div>
-    <div>Plays LOL: <span th:text="${player.lol} ? 'Yes' : 'No'">LOL</span></div>
-    <div>Plays Fort: <span th:text="${player.fort} ? 'Yes' : 'No'">Fort</span></div>
-    <div>Discord: <span th:text="${player.discord}">Discord</span></div>
-    <div>About Me: <span th:text="${player.aboutme}">About Me</span></div>
+<div class="heading">Find a Player</div>
+<div class = "cards-container">
+    <div th:each="player : ${players}" class="player-card">
+        <div><span th:text="${player.username}">Username</span></div>
+        <div><span th:text="${player.bs} ? 'Brawl Stars' : ''">BS</span></div>
+        <div><span th:text="${player.valo} ? 'Valorant' : ''">Valo</span></div>
+        <div><span th:text="${player.lol} ? 'League of Legends' : ''">LOL</span></div>
+        <div><span th:text="${player.fort} ? 'Fortnite' : ''">Fort</span></div>
+        <div>Discord: <span th:text="${player.discord}">Discord</span></div>
+        <div>About Me: <span th:text="${player.aboutme}">About Me</span></div>
+    </div>
 </div>
 </body>
 </html>

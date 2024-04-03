@@ -5,7 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url('futuristic-modern-3840x2160-12471.jpg');
+    background-image: url('/images/futuristic-modern-3840x2160-12471.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
