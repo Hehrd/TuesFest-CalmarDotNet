@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Games list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/styles/style.css" type="text/css">
 </head>
 <body>
-    
+<div th:each="player : ${players}">
+    <div>Username: <span th:text="${player.username}">Username</span></div>
+    <div>Plays BS: <span th:text="${player.bs} ? 'Yes' : 'No'">BS</span></div>
+    <div>Plays Valo: <span th:text="${player.valo} ? 'Yes' : 'No'">Valo</span></div>
+    <div>Plays LOL: <span th:text="${player.lol} ? 'Yes' : 'No'">LOL</span></div>
+    <div>Plays Fort: <span th:text="${player.fort} ? 'Yes' : 'No'">Fort</span></div>
+    <div>Discord: <span th:text="${player.discord}">Discord</span></div>
+    <div>About Me: <span th:text="${player.aboutme}">About Me</span></div>
+</div>
 </body>
 </html>

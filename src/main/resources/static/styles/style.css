@@ -1,0 +1,50 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('futuristic-modern-3840x2160-12471.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; /* Centers the background image */
+}
+.heading {
+    font-size: 3em; /* Increased the heading size */
+    color: #007bff;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+.player-card {
+    flex: 0 1 calc(20% - 20px); /* Decreased card width further */
+    border: 2px solid #007bff;
+    padding: 15px; /* Adjusted padding for internal spacing */
+    border-radius: 8px;
+    background-color: rgba(240, 240, 240, 0.9);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+.player-card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+.player-card div, .player-card span {
+    font-size: 1.2em; /* Increased font size for all text */
+}
+.player-card div:first-child span {
+    font-weight: bold;
+    font-size: 1.8em; /* Further increased the username size */
+}

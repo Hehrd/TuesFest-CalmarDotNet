@@ -111,8 +111,9 @@ public class PlayerDataControllerImpl implements PlayerDataController {
 
     @Override
     public ModelAndView listPlayers(String game) {
-        List<PlayerDataEntity> playerDataEntityList = playerDataService.listPlayers(game);
+        Iterable<PlayerDataEntity> playerDataEntityList = playerDataService.listPlayers(game);
         ModelAndView mav = new ModelAndView("list");
+        mav.addObject("players", playerDataEntityList);
         return mav;
     }
 }

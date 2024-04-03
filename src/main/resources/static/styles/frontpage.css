@@ -55,7 +55,7 @@ body::before {
 }
 
 .game-image {
-   width: 100%; /* Increased from 18% to make images bigger */
+   width: 20%; /* Increased from 18% to make images bigger */
    height: 100%;
    object-fit: cover;
    margin: 20px; /* Increased margin for better spacing */
