@@ -10,7 +10,7 @@ function selectLeagueOfLegends() {
     redirectToPlayerDisplay('lol');
 }
 
-function selectRocketLeague() {
+function selectFortnite() {
     redirectToPlayerDisplay('fort'); // Note: Was 'fort' intended for Rocket League? Should this be 'rl' or similar?
 }
 

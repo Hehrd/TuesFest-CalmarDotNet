@@ -22,4 +22,6 @@ public class PlayerData {
     private String discord;
 
     private String aboutme;
+
+    private String pfp;
 }

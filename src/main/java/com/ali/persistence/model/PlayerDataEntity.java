@@ -38,6 +38,9 @@ public class PlayerDataEntity {
     @Column
     private String aboutme;
 
+    @Column(columnDefinition = "TEXT")
+    private String pfp;
+
     public PlayerDataEntity(String username, String password) {
         this.username = username;
         this.password = password;
@@ -47,5 +50,6 @@ public class PlayerDataEntity {
         this.fort = false;
         this.discord = "";
         this.aboutme = "";
+        this.pfp = "";
     }
 }

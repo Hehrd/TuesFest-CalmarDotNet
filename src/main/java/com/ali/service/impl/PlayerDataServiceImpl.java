@@ -51,12 +51,13 @@ public class PlayerDataServiceImpl implements PlayerDataService {
         entity.setBs(playerData.isBs());
         entity.setDiscord(playerData.getDiscord());
         entity.setAboutme(playerData.getAboutme());
+        entity.setPfp(playerData.getPfp());
         entity = repo.save(entity);
         return entity;
     }
 
     @Override
-    public List<PlayerDataEntity> listPlayers(String game) {
+    public List<PlayerDataEntity> listPlayers(String game, String currUsername) {
         List<PlayerDataEntity> playerDataEntityList;
         switch (game) {
             case "bs": playerDataEntityList = repo.findAllByBs(true); break;
@@ -66,6 +67,10 @@ public class PlayerDataServiceImpl implements PlayerDataService {
             default: throw new GameNotExistingException();
         }
         for (int i = 0; i < playerDataEntityList.size(); i++) {
+            if (playerDataEntityList.get(i).getUsername().equals(currUsername)) {
+                playerDataEntityList.remove(i);
+                continue;
+            }
             PlayerDataEntity playerDataEntity = playerDataEntityList.get(i);
             playerDataEntity.setPassword(null);
             playerDataEntityList.set(i, playerDataEntity);

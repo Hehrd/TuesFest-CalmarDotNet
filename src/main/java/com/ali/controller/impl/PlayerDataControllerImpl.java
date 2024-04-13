@@ -100,7 +100,7 @@ public class PlayerDataControllerImpl implements PlayerDataController {
         String currUsername = (String)session.getAttribute("username");
         playerData.setUsername(currUsername);
         HttpHeaders headers = new HttpHeaders();
-        ResponseEntity<PlayerDataEntity> responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), HttpStatus.OK) ;
+        ResponseEntity<PlayerDataEntity> responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), HttpStatus.OK);
         if (currUsername == null) {
             return responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), HttpStatus.UNAUTHORIZED) ;
         }
@@ -110,8 +110,9 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     }
 
     @Override
-    public ModelAndView listPlayers(String game) {
-        Iterable<PlayerDataEntity> playerDataEntityList = playerDataService.listPlayers(game);
+    public ModelAndView listPlayers(HttpSession session, String game) {
+        String currUsername = (String)session.getAttribute("username");
+        Iterable<PlayerDataEntity> playerDataEntityList = playerDataService.listPlayers(game, currUsername);
         ModelAndView mav = new ModelAndView("list");
         mav.addObject("players", playerDataEntityList);
         return mav;
