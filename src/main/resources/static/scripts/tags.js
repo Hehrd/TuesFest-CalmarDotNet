@@ -30,15 +30,48 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
 
+        let base64String = "";
+
+        function imageUploaded() {
+            let file = document.querySelector(
+                'input[type=file]')['files'][0];
+
+            let reader = new FileReader();
+            console.log("next");
+
+            reader.onload = function () {
+                base64String = reader.result.replace("data:", "")
+                    .replace(/^.+,/, "");
+
+                imageBase64Stringsep = base64String;
+
+                // alert(imageBase64Stringsep);
+                console.log(base64String);
+            }
+            reader.readAsDataURL(file);
+        }
+
+        function displayString() {
+            console.log("Base64String about to be printed");
+            alert(base64String);
+        }
+
         const data = {};
         // Collect the current state of checkboxes and text inputs
-        form.querySelectorAll('input[type="checkbox"], input[type="text"], textarea').forEach(element => {
+        form.querySelectorAll('input[type="checkbox"], input[type="text"], input[type=file], textarea').forEach(element => {
             if (element.type === 'checkbox') {
                 data[element.name] = element.checked;
-            } else {
-                data[element.name] = element.value; // Collect data from text and textarea inputs
+            }
+            else {
+                if (element.type === 'file') {
+                    data[element.name] = base64String;
+                }
+                else{
+                    data[element.name] = element.value; // Collect data from text and textarea inputs
+                }
             }
         });
+        
 
         const jsonData = JSON.stringify(data); // Convert to JSON
         console.log(jsonData);
