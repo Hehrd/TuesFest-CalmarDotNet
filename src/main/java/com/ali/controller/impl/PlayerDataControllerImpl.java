@@ -117,4 +117,12 @@ public class PlayerDataControllerImpl implements PlayerDataController {
         mav.addObject("players", playerDataEntityList);
         return mav;
     }
+
+    @Override
+    public ModelAndView showPlayerPage(String username) {
+        ModelAndView mav = new ModelAndView("player");
+        PlayerDataEntity player = playerDataService.findPlayer(username);
+        mav.addObject("player", player);
+        return mav;
+    }
 }

@@ -77,4 +77,10 @@ public class PlayerDataServiceImpl implements PlayerDataService {
         }
             return playerDataEntityList;
     }
+
+    @Override
+    public PlayerDataEntity findPlayer(String username) {
+        PlayerDataEntity player = repo.findByUsername(username);
+        return player;
+    }
 }

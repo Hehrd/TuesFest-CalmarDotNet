@@ -14,4 +14,6 @@ public interface PlayerDataService {
     PlayerDataEntity updateData(PlayerData playerData);
 
     List<PlayerDataEntity> listPlayers(String game, String currUsername);
+
+    PlayerDataEntity findPlayer(String username);
 }

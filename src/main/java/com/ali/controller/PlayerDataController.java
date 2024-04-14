@@ -50,4 +50,8 @@ public interface PlayerDataController {
     @RequestMapping(value = "/playerlist/{game}")
     @ResponseStatus(HttpStatus.OK)
     ModelAndView listPlayers(HttpSession session, @PathVariable String game);
+
+    @RequestMapping(value = "/{player}")
+    @ResponseStatus(HttpStatus.OK)
+    ModelAndView showPlayerPage(@PathVariable String username);
 }

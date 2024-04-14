@@ -1,6 +1,31 @@
+let base64String = "";
+
+function imageUploaded() {
+    alert("test!");
+    console.log("test");
+
+    // Retrieve the file from the input element
+    let file = document.getElementById('profile_picture').files[0];
+
+    // Check if file is selected
+    if (file) {
+        let reader = new FileReader();
+        console.log("next");
+
+        reader.onloadend = function () {
+            base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
+            var imageBase64Stringsep = base64String;
+            // alert(imageBase64Stringsep);
+            console.log(base64String);
+        };
+        reader.readAsDataURL(file);
+    } else {
+        console.log("No file selected.");
+    }
+}
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.games-list');
-    
+
     // Fetch and update checkboxes and text inputs based on server data
     fetch('/api/teamplayer/gettags')
     .then(response => {
@@ -25,36 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
         console.error('There was a problem with your fetch operation:', error);
     });
-
     // Handle form submission
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
 
-        let base64String = "";
-
-        function imageUploaded() {
-            let file = document.querySelector(
-                'input[type=file]')['files'][0];
-
-            let reader = new FileReader();
-            console.log("next");
-
-            reader.onload = function () {
-                base64String = reader.result.replace("data:", "")
-                    .replace(/^.+,/, "");
-
-                imageBase64Stringsep = base64String;
-
-                // alert(imageBase64Stringsep);
-                console.log(base64String);
-            }
-            reader.readAsDataURL(file);
-        }
-
-        function displayString() {
-            console.log("Base64String about to be printed");
-            alert(base64String);
-        }
 
         const data = {};
         // Collect the current state of checkboxes and text inputs
@@ -64,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             else {
                 if (element.type === 'file') {
+                console.log(base64String)
+                console.log("gyatt")
                     data[element.name] = base64String;
                 }
                 else{
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        
+
 
         const jsonData = JSON.stringify(data); // Convert to JSON
         console.log(jsonData);
