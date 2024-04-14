@@ -122,7 +122,9 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     public ModelAndView showPlayerPage(String username) {
         ModelAndView mav = new ModelAndView("player");
         PlayerDataEntity player = playerDataService.findPlayer(username);
+        String imageData = "data:image/jpg;base64," + player.getPfp();
         mav.addObject("player", player);
+        mav.addObject("imageData", imageData);
         return mav;
     }
 }

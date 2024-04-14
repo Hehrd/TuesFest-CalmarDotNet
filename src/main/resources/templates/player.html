@@ -5,19 +5,19 @@
     <title>Player Profile</title>
 </head>
 <body>
-    <div class="player-card" th:text="${player.username}">
+    <div class="player-card">
         <div class="username-pfp-container">
-            <div class="username">   </div>
-            <div class="pfp">   </div>
+            <div class="username" th:text="${player.username}">Username</div>
+            <div class="pfp"><img th:src="${imageData}" alt="pfp"></div>
         </div>
         <div class="about-discord-container">
             <div class="about-container">
-                <div class="abouth">   </div>
-                <div class="about"> </div>
+                <div class="aboutme-header">About me</div>
+                <div class="aboutme" th:text="${player.aboutme}"></div>
             </div>
             <div class="discord-container">
-                <div class="discordh">   </div>
-                <div class="discord"> </div>
+                <div class="discord-header">Discord</div>
+                <div class="discord" th:text="${player.discord}"></div>
             </div>
         </div>
     </div>
