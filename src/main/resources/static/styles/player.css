@@ -5,6 +5,10 @@ body {
     background: #f4f4f4;
 }
 
+.player-card{
+    display:flex;
+    flex-direction: column;
+}
 /* Styling for the player card */
 .player-card {
     display: flex;
