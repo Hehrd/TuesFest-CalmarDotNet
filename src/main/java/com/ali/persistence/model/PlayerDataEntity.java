@@ -41,6 +41,21 @@ public class PlayerDataEntity {
     @Column(columnDefinition = "TEXT")
     private String pfp;
 
+    @Column(columnDefinition = "TEXT")
+    private String highlight1;
+
+    @Column(columnDefinition = "TEXT")
+    private String highlight2;
+
+    @Column(columnDefinition = "TEXT")
+    private String highlight3;
+
+    @Column(columnDefinition = "TEXT")
+    private String highlight4;
+
+    @Column(columnDefinition = "TEXT")
+    private String highlight5;
+
     public PlayerDataEntity(String username, String password) {
         this.username = username;
         this.password = password;

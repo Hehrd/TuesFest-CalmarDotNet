@@ -1,5 +1,11 @@
-let base64String = "";
-
+let base64StringImg = "";
+let base64StringVid = {
+    vid1: "",
+    vid2: "",
+    vid3: "",
+    vid4: "",
+    vid5: ""
+}
 function imageUploaded() {
     alert("test!");
     console.log("test");
@@ -13,16 +19,36 @@ function imageUploaded() {
         console.log("next");
 
         reader.onloadend = function () {
-            base64String = reader.result.replace("data:", "").replace(/^.+,/, "");
-            var imageBase64Stringsep = base64String;
+            base64StringImg = reader.result.replace("data:", "").replace(/^.+,/, "");
+            var imageBase64Stringsep = base64StringImg;
             // alert(imageBase64Stringsep);
-            console.log(base64String);
+            console.log(base64StringImg);
         };
         reader.readAsDataURL(file);
     } else {
         console.log("No file selected.");
     }
 }
+
+function videoUploaded() {
+    alert("test");
+    const files = document.getElementById('highlights').files;
+    if (files.length > 0) {
+        var i = 1;
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            reader.onloadend = function(event) {
+                 base64StringVid["vid" + i] = event.target.result.replace("data:", "").replace(/^.+,/, "");
+                console.log(base64StringVid)
+                 i = i + 1;
+                // Optionally, you can handle the Base64 string further here
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.games-list');
 
@@ -63,12 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             else {
                 if (element.type === 'file') {
-                console.log(base64String)
-                console.log("gyatt")
-                    data[element.name] = base64String;
-                }
-                else{
-                    data[element.name] = element.value; // Collect data from text and textarea inputs
+                    Array.from(element.files).forEach(file => {
+                        if (file.type.match('image/jpeg')) {
+                            data[element.name] = base64StringImg; // Store JPEG image Base64 string
+                        } else if (file.type.match('video/mp4')) {
+                            data[element.name] = base64StringVid; // Store MP4 video Base64 string
+                        }
+                    });
                 }
             }
         });

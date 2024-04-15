@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', function(event) {
             let username = this.querySelector('span').textContent
             console.log(username)
-            window.location.href=`/api/teamplayer/${username}`
+            window.location.href=`/api/teamplayer/profile/${username}`
             // You can also use event.target to refer to the clicked element
         });
     });

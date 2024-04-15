@@ -52,6 +52,11 @@ public class PlayerDataServiceImpl implements PlayerDataService {
         entity.setDiscord(playerData.getDiscord());
         entity.setAboutme(playerData.getAboutme());
         entity.setPfp(playerData.getPfp());
+        entity.setHighlight1(playerData.getHighlights().getVid1());
+        entity.setHighlight2(playerData.getHighlights().getVid2());
+        entity.setHighlight3(playerData.getHighlights().getVid3());
+        entity.setHighlight4(playerData.getHighlights().getVid4());
+        entity.setHighlight5(playerData.getHighlights().getVid5());
         entity = repo.save(entity);
         return entity;
     }
@@ -81,6 +86,7 @@ public class PlayerDataServiceImpl implements PlayerDataService {
     @Override
     public PlayerDataEntity findPlayer(String username) {
         PlayerDataEntity player = repo.findByUsername(username);
+        player.setPassword("");
         return player;
     }
 }

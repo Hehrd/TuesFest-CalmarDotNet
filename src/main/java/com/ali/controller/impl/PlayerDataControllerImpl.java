@@ -100,9 +100,10 @@ public class PlayerDataControllerImpl implements PlayerDataController {
         String currUsername = (String)session.getAttribute("username");
         playerData.setUsername(currUsername);
         HttpHeaders headers = new HttpHeaders();
-        ResponseEntity<PlayerDataEntity> responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), HttpStatus.OK);
+        ResponseEntity<PlayerDataEntity> responseEntity;
         if (currUsername == null) {
-            return responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), HttpStatus.UNAUTHORIZED) ;
+            responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), HttpStatus.UNAUTHORIZED) ;
+            return responseEntity;
         }
         playerData.setUsername(currUsername);
         responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), headers, HttpStatus.OK) ;
@@ -123,8 +124,18 @@ public class PlayerDataControllerImpl implements PlayerDataController {
         ModelAndView mav = new ModelAndView("player");
         PlayerDataEntity player = playerDataService.findPlayer(username);
         String imageData = "data:image/jpg;base64," + player.getPfp();
+        String highlightData1 = "data:video/mp4;base64," + player.getHighlight1();
+        String highlightData2 = "data:video/mp4;base64," + player.getHighlight2();
+        String highlightData3 = "data:video/mp4;base64," + player.getHighlight3();
+        String highlightData4 = "data:video/mp4;base64," + player.getHighlight4();
+        String highlightData5 = "data:video/mp4;base64," + player.getHighlight5();
         mav.addObject("player", player);
         mav.addObject("imageData", imageData);
+        mav.addObject("highlight1", highlightData1);
+        mav.addObject("highlight2", highlightData2);
+        mav.addObject("highlight3", highlightData3);
+        mav.addObject("highlight4", highlightData4);
+        mav.addObject("highlight5", highlightData5);
         return mav;
     }
 }

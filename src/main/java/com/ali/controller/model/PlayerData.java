@@ -24,4 +24,6 @@ public class PlayerData {
     private String aboutme;
 
     private String pfp;
+
+    private Highlights highlights;
 }
