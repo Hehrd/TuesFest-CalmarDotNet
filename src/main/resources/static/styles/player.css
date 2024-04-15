@@ -5,14 +5,7 @@ body {
     background: #f4f4f4;
 }
 
-.player-card{
-    display:flex;
-    flex-direction: column;
-}
-/* Styling for the player card */
 .player-card {
-    display: flex;
-    justify-content: space-between;
     background: white;
     border: 1px solid #ccc;
     padding: 20px;
@@ -20,7 +13,11 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Container for username and profile picture */
+.top-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .username-pfp-container {
     display: flex;
     flex-direction: column;
@@ -41,7 +38,6 @@ body {
     border: 2px solid #ddd;
 }
 
-/* Container for "About Me" and "Discord" */
 .about-discord-container {
     display: flex;
     flex-direction: column;
@@ -66,9 +62,12 @@ body {
     color: #666;
 }
 
-/* Responsive adjustments */
+.vid-container {
+    margin-top: 20px;
+}
+
 @media (max-width: 600px) {
-    .player-card {
+    .top-container {
         flex-direction: column;
     }
 
