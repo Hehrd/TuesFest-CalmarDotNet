@@ -120,6 +120,16 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     }
 
     @Override
+    public String getTags(HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        if (username == null) {
+            return "{}";
+        }
+        String result = service.getTags(username);
+        return result;
+    }
+
+    @Override
     public ModelAndView showPlayerPage(String username) {
         ModelAndView mav = new ModelAndView("player");
         PlayerDataEntity player = playerDataService.findPlayer(username);
