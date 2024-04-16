@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="player-card">
-        <div class="vid-separators">
+        <div class="top-container">
             <div class="username-pfp-container">
                 <div class="username" th:text="${player.username}">Username</div>
                 <div class="pfp"><img th:src="${imageData}" alt="pfp"></div>
@@ -22,13 +22,13 @@
                     <div class="discord" th:text="${player.discord}"></div>
                 </div>
             </div>
-            <div class="vid-container">
-                <video class="vid" th:src="${highlight1}" type="video/mp4" controls></video>
-                <video class="vid" th:src="${highlight2}" type="video/mp4" controls></video>
-                <video class="vid" th:src="${highlight3}" type="video/mp4" controls></video>
-                <video class="vid" th:src="${highlight4}" type="video/mp4" controls></video>
-                <video class="vid" th:src="${highlight5}" type="video/mp4" controls></video>
-            </div>
+        </div>
+        <div class="vid-container">
+            <video class="vid" th:src="${highlight1}" type="video/mp4" controls></video>
+            <video class="vid" th:src="${highlight2}" type="video/mp4" controls></video>
+            <video class="vid" th:src="${highlight3}" type="video/mp4" controls></video>
+            <video class="vid" th:src="${highlight4}" type="video/mp4" controls></video>
+            <video class="vid" th:src="${highlight5}" type="video/mp4" controls></video>
         </div>
     </div>
     <script src="/scripts/player.js"></script>
