@@ -89,4 +89,10 @@ public class PlayerDataServiceImpl implements PlayerDataService {
         player.setPassword("");
         return player;
     }
+
+    @Override
+    public List<PlayerDataEntity> searchPlayers(String username) {
+        List<PlayerDataEntity> players = repo.findByUsernameContaining(username);
+        return players;
+    }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,31 +9,31 @@
 <body>
     <form class="games-list">
         <div class="game-item">
-            <input type="checkbox" id="LoL" name="lol" class="game-checkbox">
+            <input type="checkbox" id="LoL" name="lol" class="game-checkbox" th:checked="${player.lol}">
             <label for="LoL" class="game-label">League of Legends</label>
         </div>
         <div class="game-item">
-            <input type="checkbox" id="Valorant" name="valo" class="game-checkbox">
+            <input type="checkbox" id="Valorant" name="valo" class="game-checkbox" th:checked="${player.valo}">
             <label for="Valorant" class="game-label">Valorant</label>
         </div>
         <div class="game-item">
-            <input type="checkbox" id="RocketLeague" name="fort" class="game-checkbox">
-            <label for="RocketLeague" class="game-label">Rocket League</label>
+            <input type="checkbox" id="RocketLeague" name="fort" class="game-checkbox" th:checked="${player.fort}">
+            <label for="RocketLeague" class="game-label">Fortnite</label>
         </div>
         <div class="game-item">
-            <input type="checkbox" id="BrawlStars" name="bs" class="game-checkbox">
+            <input type="checkbox" id="BrawlStars" name="bs" class="game-checkbox" th:checked="${player.bs}">
             <label for="BrawlStars" class="game-label">Brawl Stars</label>
         </div>
 
         <div class="input-item">
             <label for="contactInfo" class="input-label">Discord:</label>
-            <input type="text" id="contactInfo" name="discord" class="input-text">
+            <input type="text" id="contactInfo" name="discord" class="input-text" th:value="${player.discord}">
         </div>
         
         <!-- About Me Textarea -->
         <div class="input-item">
             <label for="aboutMe" class="input-label">About Me:</label>
-            <textarea id="aboutMe" name="aboutme" class="input-textarea"></textarea>
+            <input type="text" id="aboutMe" name="aboutme" class="input-text" th:value="${player.aboutme}">
         </div>
 
         <div class="input-item">

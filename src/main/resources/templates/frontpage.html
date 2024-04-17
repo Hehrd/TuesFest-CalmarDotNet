@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,8 +24,15 @@
         <img src="/images/Valorantpage.jpg" alt="Valorant" class="game-image" onclick="selectValorant()">
         
     </div>
+    <input type="text" id="search_bar" name="sb" class="input-text">
+    <button id="search_button" class="search-button" onclick()="LogInRedirect">Search</button>
 
+    <table>
+        <tr th:each="player : ${players}">
+            <td type="text" th:value="${player.username}"></td>
+        </tr>
+    </table>
 
-<script src="/scripts/frontpage.js"></script>
+    <script src="/scripts/frontpage.js"></script>
 </body>
 </html>

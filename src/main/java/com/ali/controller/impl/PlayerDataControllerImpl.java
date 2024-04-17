@@ -61,6 +61,9 @@ public class PlayerDataControllerImpl implements PlayerDataController {
             return mav;
         } else {
             ModelAndView mav = new ModelAndView("settings");
+            String username = (String)session.getAttribute("username");
+            PlayerDataEntity player = playerDataService.findPlayer(username);
+            mav.addObject("player" ,player);
             return mav;
         }
     }
@@ -69,6 +72,7 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     public ResponseEntity<PlayerDataEntity> register(HttpSession session, PlayerData playerData) {
         HttpHeaders headers = new HttpHeaders();
         ResponseEntity<PlayerDataEntity> responseEntity;
+        playerData.setUsername(playerData.getUsername().toLowerCase());
         try {
             PlayerDataEntity entity = playerDataService.register(playerData);
             responseEntity = new ResponseEntity<>(entity, headers,HttpStatus.CREATED);
@@ -84,6 +88,7 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     public ResponseEntity<PlayerDataEntity> login(HttpSession session, PlayerData playerData) {
         HttpHeaders headers = new HttpHeaders();
         ResponseEntity<PlayerDataEntity> responseEntity;
+        playerData.setUsername(playerData.getUsername().toLowerCase());
         try {
             PlayerDataEntity entity = playerDataService.login(playerData);
             responseEntity = new ResponseEntity<>(entity, headers, HttpStatus.OK);
@@ -120,16 +125,6 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     }
 
     @Override
-    public String getTags(HttpSession session) {
-        String username = (String)session.getAttribute("username");
-        if (username == null) {
-            return "{}";
-        }
-        String result = service.getTags(username);
-        return result;
-    }
-
-    @Override
     public ModelAndView showPlayerPage(String username) {
         ModelAndView mav = new ModelAndView("player");
         PlayerDataEntity player = playerDataService.findPlayer(username);
@@ -146,6 +141,14 @@ public class PlayerDataControllerImpl implements PlayerDataController {
         mav.addObject("highlight3", highlightData3);
         mav.addObject("highlight4", highlightData4);
         mav.addObject("highlight5", highlightData5);
+        return mav;
+    }
+
+    @Override
+    public ModelAndView searchPlayers(String username) {
+        ModelAndView mav = new ModelAndView("frontpage");
+        List<PlayerDataEntity> players = playerDataService.searchPlayers(username);
+        mav.addObject("players", players);
         return mav;
     }
 }

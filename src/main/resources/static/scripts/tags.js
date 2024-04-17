@@ -52,43 +52,36 @@ function videoUploaded() {
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.games-list');
 
-    // Fetch and update checkboxes and text inputs based on server data
-    fetch('/api/teamplayer/gettags')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json(); // Parse the response as JSON
-    })
-    .then(data => {
-        // Iterate over the returned data and update checkboxes
-        for (const [name, value] of Object.entries(data)) {
-            const element = document.querySelector(`[name="${name}"]`);
-            if (element && element.type === 'checkbox') {
-                element.checked = value;
-                // Manually trigger a change event to update label styling
-                triggerChangeEvent(element);
-            } else if (element) {
-                element.value = value; // Set the value for text and textarea inputs
-            }
-        }
-    })
-    .catch(error => {
-        console.error('There was a problem with your fetch operation:', error);
-    });
-    // Handle form submission
-    form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
 
 
-        const data = {};
+        const data = {
+            lol: "",
+            valo: "",
+            fort: "",
+            bs: "",
+            discord: "",
+            aboutme: "",
+            pfp: "",
+            highlights: {
+                vid1: "",
+                vid2: "",
+                vid3: "",
+                vid4: "",
+                vid5: ""
+            } // No need for a comma after the last item in the object
+        };
         // Collect the current state of checkboxes and text inputs
-        form.querySelectorAll('input[type="checkbox"], input[type="text"], input[type=file], textarea').forEach(element => {
+        form.querySelectorAll('input[type="checkbox"], input[type="text"], input[type=file]').forEach(element => {
             if (element.type === 'checkbox') {
                 data[element.name] = element.checked;
             }
             else {
-                if (element.type === 'file') {
+                if (element.type === 'text') {
+                    data[element.name] = element.value;
+                }
+                else if (element.type === 'file') {
                     Array.from(element.files).forEach(file => {
                         if (file.type.match('image/jpeg')) {
                             data[element.name] = base64StringImg; // Store JPEG image Base64 string

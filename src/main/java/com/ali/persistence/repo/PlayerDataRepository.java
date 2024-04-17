@@ -26,4 +26,6 @@ public interface PlayerDataRepository extends JpaRepository<PlayerDataEntity, In
     List<PlayerDataEntity> findAllByFort(boolean isPlayed);
 
     List<PlayerDataEntity> findAllByValo(boolean isPlayed);
+
+    List<PlayerDataEntity> findByUsernameContaining(String username);
 }
