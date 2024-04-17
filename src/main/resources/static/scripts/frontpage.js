@@ -27,13 +27,14 @@ function searchPlayers(event) {
     }
 
     var apiUrl = '/api/teamplayer/frontpage';
-
+    data={};
+    data.username = searchText;
     fetch(apiUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({username : searchText})
+        body: JSON.stringify(data)
     })
     .then(response => response.json())
     .then(data => {
