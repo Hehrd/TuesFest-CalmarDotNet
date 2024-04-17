@@ -39,7 +39,7 @@
         <div class="input-item">
             <label for="profile_picture" class="input-label">Profile picture</label>
             <input type="file" id="profile_picture" onchange="imageUploaded()" name="pfp" accept="image/jpeg" class="input-textarea" th:value="${player.pfp}">
-            <img th:src="${pfp}">
+            <img class="pfp" th:src="${pfp}">
         </div>
 
         <div class="input-item">
