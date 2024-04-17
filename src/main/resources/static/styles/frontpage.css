@@ -45,7 +45,7 @@ body::before {
    align-items: center;
    flex-wrap: nowrap;
    padding: 20px;
-   margin-top: 60px; /* Adjust based on the search container's final position */
+   margin-top: 5px;
    overflow-y: auto;
 }
 .game-container a{
@@ -84,12 +84,12 @@ body::before {
 
 /* Search bar container styling */
 .search-container {
-   position: absolute; /* Adjust position as needed */
-   top: 20px; /* Distance from the top */
-   right: 20px; /* Distance from the right */
-   width: 300px; /* Width of the search bar */
+   position: absolute;
+   top: 55%;
+   right: 20%;
+   width: 60%;
    padding: 10px;
-   z-index: 10; /* Ensure it sits above the blurred background */
+   z-index: 10;
 }
 
 /* Style for the input field */
