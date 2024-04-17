@@ -1,16 +1,27 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
     margin: 0;
     padding: 20px;
-    background: #f4f4f4;
+    background: #121212; /* Dark background for gaming feel */
+    color: #e0e0e0; /* Light text color for contrast */
+    background-image: url('/images/futuristic-modern-3840x2160-12471.jpg'); /* Ensure the image path is correct */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .player-card {
-    background: white;
-    border: 1px solid #ccc;
+    background: #1e1e1e; /* Dark card background */
+    border: 1px solid #333; /* Changed from blue to a more neutral dark grey */
     padding: 20px;
+    margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 20px;
+
+    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.2); /* Neon glow effect */
 }
 
 .top-container {
@@ -29,13 +40,14 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #4dff4d; /* Neon green for emphasis */
 }
 
 .pfp img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid #ddd;
+    border: 2px solid #007700; /* Adjusted green border */
 }
 
 .about-discord-container {
@@ -47,19 +59,21 @@ body {
 }
 
 .about-container, .discord-container {
+    background: #1e1e1e; /* Grey-black backgrounds for divs */
+    color: #ffffff; /* White text for readability */
     margin-bottom: 10px;
+    padding: 10px; /* Added padding for better spacing */
 }
 
 .aboutme-header, .discord-header {
     font-size: 16px;
-    color: #333;
+    color: #4dff4d; /* Neon green headers for emphasis */
     margin-bottom: 5px;
     font-weight: bold;
 }
 
 .aboutme, .discord {
     font-size: 14px;
-    color: #666;
 }
 
 .vid-container {

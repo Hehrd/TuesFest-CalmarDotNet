@@ -9,7 +9,12 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
-
+.pfp {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
 .games-list {
     display: flex;
     flex-wrap: wrap;

@@ -1,26 +1,23 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
     margin: 0;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('/images/futuristic-modern-3840x2160-12471.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; /* Centers the background image */
+    background: #121212; /* Dark background for a gaming feel */
+    color: #000000; /* Light text color for contrast */
 }
+
 .heading {
-    font-size: 3em; /* Increased the heading size */
-    color: #007bff;
+    font-size: 3em;
+    color: #4dff4d; /* Neon green to match other headings */
     margin-bottom: 20px;
     animation: fadeIn 2s ease-out;
 }
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
 .cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -28,13 +25,14 @@ body {
     justify-content: center;
     width: 100%;
 }
+
 .player-card {
     flex: 0 1 calc(20% - 20px);
-    border: 2px solid #007bff;
+    border: 1px solid #333; /* Subtle border color */
     padding: 15px;
     border-radius: 8px;
-    background-color: rgba(240, 240, 240, 0.9);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: #1e1e1e; /* Dark card background */
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* Neon green glow effect */
     transition: transform 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -46,20 +44,25 @@ body {
 .player-card .text {
     margin-top: auto;
     max-height: 100px;
-    overflow-y: auto;
+    overflow-y: auto; /* Allows scrolling for overflow text */
 }
 
 .player-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Lift effect on hover for interactivity */
     cursor: pointer;
 }
+
 .player-card div, .player-card span {
-    font-size: 1.2em; /* Increased font size for all text */
+    font-size: 1.2em;
+    color: #000000; /* Light grey text for readability */
 }
+
 .player-card div:first-child span {
     font-weight: bold;
-    font-size: 1.8em; /* Further increased the username size */
+    font-size: 1.8em; /* Larger username size */
+    color: #33a333; /* Neon green for emphasis */
 }
+
 .text {
-    margin-top: auto; /* Push .text to the bottom */
+    margin-top: auto; /* Aligns the text at the bottom */
 }
