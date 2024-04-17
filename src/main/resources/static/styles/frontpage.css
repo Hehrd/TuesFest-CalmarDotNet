@@ -100,20 +100,20 @@ body::before {
    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
    color: #333;
    font-size: 16px;
-   border-radius: 4px 0 0 4px; /* Rounded left corners */
+   border-radius: 4px; /* Rounded left corners */
    outline: none; /* Remove default focus outline */
 }
 
 /* Style for the search button */
 .search-button {
-   width: 50px; /* Fixed width */
+   margin-top: 15px;
    border: none;
    padding: 8px;
    background-color: #4CAF50; /* Green background */
    color: white;
    font-size: 16px;
    cursor: pointer;
-   border-radius: 0 4px 4px 0; /* Rounded right corners */
+   border-radius: 4px; /* Rounded right corners */
    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
