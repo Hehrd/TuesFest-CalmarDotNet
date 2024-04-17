@@ -2,6 +2,7 @@ package com.ali.controller.impl;
 
 import com.ali.controller.PlayerDataController;
 import com.ali.controller.model.PlayerData;
+import com.ali.controller.model.Username;
 import com.ali.persistence.model.PlayerDataEntity;
 import com.ali.service.error.DuplicateUserException;
 import com.ali.service.error.UserNotFoundException;
@@ -64,6 +65,18 @@ public class PlayerDataControllerImpl implements PlayerDataController {
             String username = (String)session.getAttribute("username");
             PlayerDataEntity player = playerDataService.findPlayer(username);
             mav.addObject("player" ,player);
+            String pfp = "data:image/jpg;base64," + player.getPfp();
+            String highlightData1 = "data:video/mp4;base64," + player.getHighlight1();
+            String highlightData2 = "data:video/mp4;base64," + player.getHighlight2();
+            String highlightData3 = "data:video/mp4;base64," + player.getHighlight3();
+            String highlightData4 = "data:video/mp4;base64," + player.getHighlight4();
+            String highlightData5 = "data:video/mp4;base64," + player.getHighlight5();
+            mav.addObject("pfp", pfp);
+            mav.addObject("highlight1", highlightData1);
+            mav.addObject("highlight2", highlightData2);
+            mav.addObject("highlight3", highlightData3);
+            mav.addObject("highlight4", highlightData4);
+            mav.addObject("highlight5", highlightData5);
             return mav;
         }
     }
@@ -145,10 +158,14 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     }
 
     @Override
-    public ModelAndView searchPlayers(String username) {
+    public ModelAndView searchPlayers(Username username) {
         ModelAndView mav = new ModelAndView("frontpage");
-        List<PlayerDataEntity> players = playerDataService.searchPlayers(username);
-        mav.addObject("players", players);
+        List<PlayerDataEntity> players = playerDataService.searchPlayers(username.getUsername());
+        List<String> usernames = null;
+        for (int i = 0; i < players.size(); i++) {
+            usernames.set(i, players.get(i).getUsername());
+        }
+        mav.addObject("usernames", usernames);
         return mav;
     }
 }

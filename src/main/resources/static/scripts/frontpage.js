@@ -18,27 +18,47 @@ function selectValorant() {
     redirectToPlayerDisplay('valo');
 }
 function searchPlayers(event) {
-
     event.preventDefault();
-    // Get the value from the input field
     var searchText = document.getElementById('search_bar').value;
 
-    // Define the API endpoint you're sending data to
+    if (searchText.trim() === '') {
+        document.getElementById('results').style.display = 'none';
+        return;
+    }
+
     var apiUrl = '/api/teamplayer/frontpage';
 
-    // Make a POST request with the input data
     fetch(apiUrl, {
-        method: 'POST', // or 'PUT'
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ sb: searchText })
+        body: JSON.stringify({username : searchText})
     })
-    .then(response => response.json())  // Assuming the server responds with JSON
+    .then(response => response.json())
     .then(data => {
-        console.log('Success:', data);
+        const resultsContainer = document.getElementById('results');
+        resultsContainer.innerHTML = ''; // Clear previous results
+        resultsContainer.style.display = 'block';
+
+        data.usernames.forEach(username => {
+            const div = document.createElement('div');
+            div.textContent = username;
+            div.className = 'result-item';
+            div.onclick = () => window.location.href = `/player/${username}`; // Navigate to user page
+            resultsContainer.appendChild(div);
+        });
     })
-    .catch((error) => {
+    .catch(error => {
         console.error('Error:', error);
+        document.getElementById('results').style.display = 'none';
     });
 }
+
+// Hide results when clicking outside
+document.addEventListener('click', function(event) {
+    const resultsContainer = document.getElementById('results');
+    if (!resultsContainer.contains(event.target)) {
+        resultsContainer.style.display = 'none';
+    }
+});

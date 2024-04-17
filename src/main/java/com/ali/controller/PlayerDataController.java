@@ -1,6 +1,7 @@
 package com.ali.controller;
 
 import com.ali.controller.model.PlayerData;
+import com.ali.controller.model.Username;
 import com.ali.persistence.model.PlayerDataEntity;
 import jakarta.servlet.annotation.HttpConstraint;
 import jakarta.servlet.http.HttpSession;
@@ -57,5 +58,5 @@ public interface PlayerDataController {
 
     @RequestMapping(value = "/frontpage", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    ModelAndView searchPlayers(@RequestBody String username);
+    ModelAndView searchPlayers(@RequestBody Username username);
 }

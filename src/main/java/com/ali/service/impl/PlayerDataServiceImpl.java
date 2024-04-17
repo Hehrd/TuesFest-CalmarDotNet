@@ -51,12 +51,24 @@ public class PlayerDataServiceImpl implements PlayerDataService {
         entity.setBs(playerData.isBs());
         entity.setDiscord(playerData.getDiscord());
         entity.setAboutme(playerData.getAboutme());
-        entity.setPfp(playerData.getPfp());
-        entity.setHighlight1(playerData.getHighlights().getVid1());
-        entity.setHighlight2(playerData.getHighlights().getVid2());
-        entity.setHighlight3(playerData.getHighlights().getVid3());
-        entity.setHighlight4(playerData.getHighlights().getVid4());
-        entity.setHighlight5(playerData.getHighlights().getVid5());
+        if (!playerData.getPfp().equals("")) {
+            entity.setPfp(playerData.getPfp());
+        }
+        if (!playerData.getHighlights().getVid1().equals("")) {
+            entity.setHighlight1(playerData.getHighlights().getVid1());
+        }
+        if (!playerData.getHighlights().getVid2().equals("")) {
+            entity.setHighlight1(playerData.getHighlights().getVid2());
+        }
+        if (!playerData.getHighlights().getVid3().equals("")) {
+            entity.setHighlight1(playerData.getHighlights().getVid3());
+        }
+        if (!playerData.getHighlights().getVid4().equals("")) {
+            entity.setHighlight1(playerData.getHighlights().getVid4());
+        }
+        if (!playerData.getHighlights().getVid5().equals("")) {
+            entity.setHighlight1(playerData.getHighlights().getVid5());
+        }
         entity = repo.save(entity);
         return entity;
     }
