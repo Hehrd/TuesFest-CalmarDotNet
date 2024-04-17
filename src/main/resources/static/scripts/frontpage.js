@@ -17,24 +17,28 @@ function selectFortnite() {
 function selectValorant() {
     redirectToPlayerDisplay('valo');
 }
-let username = document.getElementById('search_bar').value
-function searchPlayers() {
-console.log(username);
-    fetch('/api/teamplayer/frontpage', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(username),
-        })
-        .then(response => {
-            if (response.ok) {
-            return response.json();
-        }})
-        .then(data => {
-            console.log('Response:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+function searchPlayers(event) {
+
+    event.preventDefault();
+    // Get the value from the input field
+    var searchText = document.getElementById('search_bar').value;
+
+    // Define the API endpoint you're sending data to
+    var apiUrl = '/api/teamplayer/frontpage';
+
+    // Make a POST request with the input data
+    fetch(apiUrl, {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ sb: searchText })
+    })
+    .then(response => response.json())  // Assuming the server responds with JSON
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }

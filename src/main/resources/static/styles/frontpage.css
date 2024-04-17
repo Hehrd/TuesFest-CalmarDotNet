@@ -81,3 +81,42 @@ body::before {
        margin: 20px auto; /* Increased space and centered horizontally */
    }
 }
+
+/* Search bar container styling */
+.search-container {
+   position: absolute; /* Adjust position as needed */
+   top: 20px; /* Distance from the top */
+   right: 20px; /* Distance from the right */
+   width: 300px; /* Width of the search bar */
+   padding: 10px;
+   z-index: 10; /* Ensure it sits above the blurred background */
+}
+
+/* Style for the input field */
+.input-text {
+   width: calc(100% - 50px); /* Full width minus button width */
+   padding: 8px;
+   border: 2px solid #fff; /* White border */
+   background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+   color: #333;
+   font-size: 16px;
+   border-radius: 4px 0 0 4px; /* Rounded left corners */
+   outline: none; /* Remove default focus outline */
+}
+
+/* Style for the search button */
+.search-button {
+   width: 50px; /* Fixed width */
+   border: none;
+   padding: 8px;
+   background-color: #4CAF50; /* Green background */
+   color: white;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 0 4px 4px 0; /* Rounded right corners */
+   transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.search-button:hover {
+   background-color: #367c39; /* Darker shade of green on hover */
+}
