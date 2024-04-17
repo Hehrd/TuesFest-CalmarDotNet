@@ -62,6 +62,51 @@ body, html {
     grid-row: 3 / 4;
   }
 
+  .search-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px; /* Adjust as necessary */
+      margin: 20px auto;
+  }
+
+  .input-text {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+
+  .results {
+      position: absolute;
+      background: white;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      z-index: 1000;
+      display: none; /* initially hidden */
+  }
+
+  .result-item {
+      padding: 10px 15px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      font-size: 14px;
+  }
+
+  .result-item:last-child {
+      border-bottom: none;
+  }
+
+  .result-item:hover {
+      background-color: #f9f9f9;
+  }
+
+  /* Optional: Add a transition effect for hover */
+  .result-item {
+      transition: background-color 0.3s;
+  }
+
   .hidden{
     display: none;
   }

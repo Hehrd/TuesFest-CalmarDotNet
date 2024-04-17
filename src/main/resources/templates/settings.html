@@ -37,13 +37,19 @@
         </div>
 
         <div class="input-item">
-            <label for="aboutMe" class="input-label">Profile picture</label>
-            <input type="file" id="profile_picture" onchange="imageUploaded()" name="pfp" accept="image/jpeg" class="input-textarea">
+            <label for="profile_picture" class="input-label">Profile picture</label>
+            <input type="file" id="profile_picture" onchange="imageUploaded()" name="pfp" accept="image/jpeg" class="input-textarea" th:value="${player.pfp}">
+            <img th:src="${pfp}">
         </div>
 
         <div class="input-item">
-            <label for="aboutMe" class="input-label">Highlights</label>
+            <label for="highlights" class="input-label">Highlights</label>
             <input type="file" id="highlights" onchange="videoUploaded()" name="highlights" accept="video/mp4" multiple class="input-textarea">
+            <video class="vid" th:src="${highlight1}" type="video/mp4" controls></video>
+            <video class="vid" th:src="${highlight2}" type="video/mp4" controls></video>
+            <video class="vid" th:src="${highlight3}" type="video/mp4" controls></video>
+            <video class="vid" th:src="${highlight4}" type="video/mp4" controls></video>
+            <video class="vid" th:src="${highlight5}" type="video/mp4" controls></video>
         </div>
 
         <div class="submit-container">
