@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -158,14 +159,14 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     }
 
     @Override
-    public ModelAndView searchPlayers(Username username) {
-        ModelAndView mav = new ModelAndView("frontpage");
+    public ResponseEntity<List<String>> searchPlayers(Username username) {
         List<PlayerDataEntity> players = playerDataService.searchPlayers(username.getUsername());
-        List<String> usernames = null;
+        List<String> usernames = new ArrayList<>();
         for (int i = 0; i < players.size(); i++) {
             usernames.set(i, players.get(i).getUsername());
         }
-        mav.addObject("usernames", usernames);
-        return mav;
+        HttpHeaders headers = new HttpHeaders();
+        ResponseEntity<List<String>> responseEntity = new ResponseEntity<>(usernames, headers, HttpStatus.OK);
+        return responseEntity;
     }
 }

@@ -58,5 +58,5 @@ public interface PlayerDataController {
 
     @RequestMapping(value = "/frontpage", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    ModelAndView searchPlayers(@RequestBody Username username);
+    ResponseEntity<List<String>> searchPlayers(@RequestBody Username username);
 }

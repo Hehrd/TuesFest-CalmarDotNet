@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Service
@@ -21,7 +23,7 @@ public class PlayerDataServiceImpl implements PlayerDataService {
     @Override
     public PlayerDataEntity register(PlayerData playerData) {
         String username = playerData.getUsername();
-        String password = playerData.getPassword();
+        String password = hashPassword(playerData.getPassword());
         if (repo.existsByUsername(username)) {
             throw new DuplicateUserException();
         }
@@ -33,7 +35,7 @@ public class PlayerDataServiceImpl implements PlayerDataService {
     @Override
     public PlayerDataEntity login(PlayerData playerData) {
         String username = playerData.getUsername();
-        String password = playerData.getPassword();
+        String password = hashPassword(playerData.getPassword());
         PlayerDataEntity entity = repo.findByUsernameAndPassword(username, password);
         if (entity != null) {
             entity = repo.findByUsername(username);
@@ -106,5 +108,21 @@ public class PlayerDataServiceImpl implements PlayerDataService {
     public List<PlayerDataEntity> searchPlayers(String username) {
         List<PlayerDataEntity> players = repo.findByUsernameContaining(username);
         return players;
+    }
+
+    private static String hashPassword(String password) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        md.update(password.getBytes());
+        byte[] bytes = md.digest();
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
     }
 }
