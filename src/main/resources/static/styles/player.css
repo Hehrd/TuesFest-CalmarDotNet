@@ -92,8 +92,9 @@ body {
 
 .about-container {
     border: 2px solid #000; /* Black border */
-    max-height: 300px; /* Maximum height before scrolling */
-    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 100px; /* Maximum height before scrolling */
+    overflow: auto; /* Allows scrolling when content exceeds max-height */
+    word-wrap: break-word; /* Ensures long words do not overflow the container */
 }
 
 .aboutme {
@@ -102,11 +103,7 @@ body {
     word-wrap: break-word; /* Ensures long words do not overflow the container */
 }
 
-
 .aboutme-header {
     font-weight: bold;
 }
 
-.aboutme {
-    padding: 10px;
-}

@@ -99,3 +99,24 @@ body {
     height: 100px; /* Adjust based on your needs */
     resize: vertical; /* Allows the user to adjust the textarea's height */
 }
+
+.back-button{
+    border: 3px solid;
+    border-radius: 15px;
+    background-color: hsl(126, 90%, 58%);
+    margin: 33px;
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+}
+.back-button:hover{
+    background-color: transparent;
+    color: hsl(126, 90%, 58%);
+    border-color: hsl(126, 90%, 58%);
+    transform: scale(1.1)
+}
+.back-button:active{
+    transform: scale(0.9);
+}

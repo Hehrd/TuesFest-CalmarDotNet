@@ -48,6 +48,10 @@ function videoUploaded() {
     }
 }
 
+function goBack() {
+    window.location.href="/api/teamplayer/frontpage"
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.games-list');
