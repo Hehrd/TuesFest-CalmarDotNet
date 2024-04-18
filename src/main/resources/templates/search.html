@@ -35,12 +35,10 @@
             <input type="text" id="search_bar" name="sb" class="input-text" placeholder="User123">
             <button type="button" id="search_button" class="search-button" onclick="searchPlayers()">Search</button>
         </form>
-        <table class="players-table">
-            <tbody>
+        <table>
             <tr th:each="user : ${users}">
-                <td class="user-row"><span th:text="${user}"> User </span></td>
+                <td th:value="${user}"></td>
             </tr>
-            </tbody>
         </table>
     </div>
     <script src="/scripts/frontpage.js"></script>

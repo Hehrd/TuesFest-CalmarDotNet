@@ -120,3 +120,28 @@ body::before {
 .search-button:hover {
    background-color: #367c39; /* Darker shade of green on hover */
 }
+
+.players-table {
+    width: 100%; /* Full width of its container */
+    border-collapse: collapse; /* Collapses the border to avoid double borders */
+    font-family: Arial, sans-serif; /* Font family for the table */
+    margin-top: 20px; /* Adds space above the table */
+}
+
+/* Styling for each cell */
+.players-table td {
+    border: 1px solid #ddd; /* Light grey border around each cell */
+    padding: 8px; /* Padding inside each cell */
+    text-align: left; /* Aligns text to the left */
+}
+
+/* Row styling for hover effect */
+.players-table tr:hover {
+    background-color: #f2f2f2; /* Light grey background on hover */
+}
+
+/* Styling for the text inside the span, making it bold */
+.players-table span {
+    font-weight: bold; /* Bold text for better readability */
+    color: #33a333; /* Dark grey color for the text */
+}

@@ -20,35 +20,18 @@ function selectValorant() {
 }
 
 function searchPlayers() {
+    let username = searchText.value;
+    window.location.href=`/api/teamplayer/search/${username}`
+}
 
-
-    //    if (searchText.trim() === '') {
-    //        document.getElementById('results').style.display = 'none';
-    //        return;
-    //    }
-
-        var apiUrl = '/api/teamplayer/frontpage';
-        data={};
-        data.username = searchText.value;
-        console.log(JSON.stringify(data));
-        fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.text())
-        .then(html => {
-        console.log(html)
-            document.open();  // Open a document for writing
-            document.write(html);  // Write the new HTML
-            document.close();  // Close the document stream
-          })
-        .catch(error => {
-            console.error('Error:', error);
+document.querySelectorAll('.user-row').forEach(user => {
+        user.addEventListener('click', function(event) {
+            let username = this.querySelector('span').textContent
+            console.log(username)
+            window.location.href=`/api/teamplayer/profile/${username}`
+            // You can also use event.target to refer to the clicked element
         });
-    }
+    });
 
 
 

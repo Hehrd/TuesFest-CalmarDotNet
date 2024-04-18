@@ -89,3 +89,17 @@ body {
         padding-left: 0;
     }
 }
+
+.about-container {
+    border: 2px solid #000; /* Black border */
+    max-height: 300px; /* Maximum height before scrolling */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.aboutme-header {
+    font-weight: bold;
+}
+
+.aboutme {
+    padding: 10px;
+}

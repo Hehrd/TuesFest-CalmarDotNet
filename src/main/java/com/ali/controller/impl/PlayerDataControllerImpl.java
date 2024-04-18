@@ -159,14 +159,14 @@ public class PlayerDataControllerImpl implements PlayerDataController {
     }
 
     @Override
-    public ResponseEntity<List<String>> searchPlayers(Username username) {
-        List<PlayerDataEntity> players = playerDataService.searchPlayers(username.getUsername());
+    public ModelAndView searchPlayers(String username) {
+        List<PlayerDataEntity> players = playerDataService.searchPlayers(username);
         List<String> usernames = new ArrayList<>();
         for (int i = 0; i < players.size(); i++) {
-            usernames.set(i, players.get(i).getUsername());
+            usernames.add(i, players.get(i).getUsername());
         }
-        HttpHeaders headers = new HttpHeaders();
-        ResponseEntity<List<String>> responseEntity = new ResponseEntity<>(usernames, headers, HttpStatus.OK);
-        return responseEntity;
+        ModelAndView mav = new ModelAndView("frontpage");
+        mav.addObject("users", usernames);
+        return mav;
     }
 }

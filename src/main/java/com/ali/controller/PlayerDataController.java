@@ -5,6 +5,7 @@ import com.ali.controller.model.Username;
 import com.ali.persistence.model.PlayerDataEntity;
 import jakarta.servlet.annotation.HttpConstraint;
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.server.PathParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -56,7 +57,7 @@ public interface PlayerDataController {
     @ResponseStatus(HttpStatus.OK)
     ModelAndView showPlayerPage(@PathVariable String username);
 
-    @RequestMapping(value = "/frontpage", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/search/{username}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<List<String>> searchPlayers(@RequestBody Username username);
+    ModelAndView searchPlayers(@PathVariable String username);
 }
