@@ -7,7 +7,7 @@
     <link rel="icon" type="image/jpg" href="/images/pngtree-controller-joystick-icon-png-image_6409450.jpg">
     <link rel="stylesheet" href="/styles/frontpage.css" type="text/css">
 </head>
-<body>
+    <body>
 
 
     <div class="navbar">
@@ -33,17 +33,19 @@
     </div>
     <div class="search-container">
         <form id="search-form">
-            <input type="text" id="search_bar" name="sb" class="input-text" placeholder="User123">
+            <input type="text" id="search_bar" name="sb" class="input-text" placeholder="User123" th:value="${username}">
             <button type="button" id="search_button" class="search-button" onclick="searchPlayers()">Search</button>
         </form>
-        <table class="players-table">
-            <tbody>
-            <tr th:each="user : ${users}">
-                <td class="user-row"><span th:text="${user}"> User </span></td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table class="players-table">
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td class="user-row"><span th:text="${user}"> User </span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src="/scripts/frontpage.js"></script>
-</body>
+    </body>
 </html>

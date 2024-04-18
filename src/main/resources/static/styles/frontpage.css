@@ -145,3 +145,9 @@ body::before {
     font-weight: bold; /* Bold text for better readability */
     color: #33a333; /* Dark grey color for the text */
 }
+
+.table-container {
+    height: 300px; /* Set the maximum height you want for the table */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+

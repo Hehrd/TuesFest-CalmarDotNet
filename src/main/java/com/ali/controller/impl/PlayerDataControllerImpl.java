@@ -166,6 +166,7 @@ public class PlayerDataControllerImpl implements PlayerDataController {
             usernames.add(i, players.get(i).getUsername());
         }
         ModelAndView mav = new ModelAndView("frontpage");
+        mav.addObject("username", username);
         mav.addObject("users", usernames);
         return mav;
     }

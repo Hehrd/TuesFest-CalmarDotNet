@@ -21,6 +21,9 @@ function selectValorant() {
 
 function searchPlayers() {
     let username = searchText.value;
+    if (username.trim() === "") {
+    return
+    }
     window.location.href=`/api/teamplayer/search/${username}`
 }
 
