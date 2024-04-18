@@ -96,6 +96,13 @@ body {
     overflow-y: auto; /* Enables vertical scrolling */
 }
 
+.aboutme {
+    font-size: 14px;
+    padding: 10px; /* Provides padding inside the container */
+    word-wrap: break-word; /* Ensures long words do not overflow the container */
+}
+
+
 .aboutme-header {
     font-weight: bold;
 }
