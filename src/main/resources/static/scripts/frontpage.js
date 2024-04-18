@@ -27,6 +27,19 @@ function searchPlayers() {
     window.location.href=`/api/teamplayer/search/${username}`
 }
 
+function logOut() {
+    fetch('/api/teamplayer/logout', {
+      method: 'GET', // Specify the method
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json()) // Convert the response to JSON
+    .then(data => console.log(data)) // Handle the data from the response
+    .catch(error => console.error('Error:', error)); // Handle any errors
+    window.location.href="/api/teamplayer"
+}
+
 document.querySelectorAll('.user-row').forEach(user => {
         user.addEventListener('click', function(event) {
             let username = this.querySelector('span').textContent

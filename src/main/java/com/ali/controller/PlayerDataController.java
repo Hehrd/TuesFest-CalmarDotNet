@@ -60,4 +60,8 @@ public interface PlayerDataController {
     @RequestMapping(value = "/search/{username}")
     @ResponseStatus(HttpStatus.OK)
     ModelAndView searchPlayers(@PathVariable String username);
+
+    @RequestMapping(value = "/logout")
+    @ResponseStatus(HttpStatus.OK)
+    ResponseEntity<PlayerDataEntity> logOut(HttpSession session);
 }

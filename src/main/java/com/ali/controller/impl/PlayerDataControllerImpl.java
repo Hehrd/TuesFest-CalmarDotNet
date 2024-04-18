@@ -124,7 +124,6 @@ public class PlayerDataControllerImpl implements PlayerDataController {
             responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), HttpStatus.UNAUTHORIZED) ;
             return responseEntity;
         }
-        playerData.setUsername(currUsername);
         responseEntity = new ResponseEntity<>(playerDataService.updateData(playerData), headers, HttpStatus.OK) ;
         return responseEntity;
     }
@@ -169,5 +168,13 @@ public class PlayerDataControllerImpl implements PlayerDataController {
         mav.addObject("username", username);
         mav.addObject("users", usernames);
         return mav;
+    }
+
+    @Override
+    public ResponseEntity<PlayerDataEntity> logOut(HttpSession session) {
+        HttpHeaders headers = new HttpHeaders();
+        ResponseEntity responseEntity = new ResponseEntity(null, headers, HttpStatus.OK);
+        session.setAttribute("username", null);
+        return responseEntity;
     }
 }

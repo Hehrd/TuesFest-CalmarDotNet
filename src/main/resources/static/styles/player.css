@@ -131,3 +131,8 @@ body {
     transform: scale(0.9);
 }
 
+.vid {
+  width: 100%;  /* Set the width of the video */
+  height: auto; /* Set the height of the video */
+}
+

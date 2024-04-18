@@ -141,9 +141,9 @@ addEventListener("DOMContentLoaded", function() {
         videos.forEach(video => {
             // Get the source of the video
             const src = video.getAttribute('src');
-            
+
             // Check if the source ends with a comma
-            if (src.endsWith(',')) {
+            if (src.endsWith('null')) {
                 // Hide the video element
                 video.style.display = 'none';
             }
