@@ -110,6 +110,9 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     outline: none;
+    position: absolute; /* Positions relative to the nearest positioned ancestor */
+    top: 10px; /* Adjust the top distance to your liking */
+    right: 10px; /* Adjust the right distance to your liking */
 }
 .back-button:hover{
     background-color: transparent;

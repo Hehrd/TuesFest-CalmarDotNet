@@ -13,3 +13,7 @@ addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    function goBack() {
+        window.location.href="/api/teamplayer/frontpage"
+    }

@@ -7,7 +7,6 @@ let base64StringVid = {
     vid5: ""
 }
 function imageUploaded() {
-    alert("test!");
     console.log("test");
 
     // Retrieve the file from the input element
@@ -31,7 +30,6 @@ function imageUploaded() {
 }
 
 function videoUploaded() {
-    alert("test");
     const files = document.getElementById('highlights').files;
     if (files.length > 0) {
         var i = 1;

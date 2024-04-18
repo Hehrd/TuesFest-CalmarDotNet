@@ -29,3 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function goBack() {
+    window.location.href="/api/teamplayer/frontpage"
+}
+

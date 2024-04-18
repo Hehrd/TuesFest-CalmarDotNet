@@ -34,7 +34,7 @@
         <!-- About Me Textarea -->
         <div class="input-item">
             <label for="aboutMe" class="input-label">About Me:</label>
-            <input type="text" id="aboutMe" name="aboutme" class="input-text" th:value="${player.aboutme}">
+            <input type="textarea" id="aboutMe" name="aboutme" class="input-textarea" th:value="${player.aboutme}">
         </div>
 
         <div class="input-item">
@@ -57,7 +57,7 @@
             <input type="submit" class="submit-btn">
         </div>
     </form>
-    <button class="back-button" onclick="goBack()">Back</button>
+    <button id="back_button" class="back-button" onclick="goBack()">Back</button>
     <script src="/scripts/tags.js"></script>
 </body>
 </html>
